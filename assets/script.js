@@ -1,7 +1,14 @@
-var FlecheGauche = document.querySelector(".arrow_left");
-var FlecheDroite = document.querySelector(".arrow_right");
+let BanniereCarroussel = document.querySelectorAll("#banner");
+let FlecheGauche = document.querySelector(".arrow_left");
+let FlecheDroite = document.querySelector(".arrow_right");
+let ImageBanniere = document.querySelector(".banner-img");
+let Paragraphe = document.querySelector("#banner p");
+let Points = document.querySelector(".dots");
 
-var slides = [
+let indexTableau = 0;
+const path = "./assets/images/slideshow/"
+
+const slides = [
 	{
 		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
@@ -20,24 +27,42 @@ var slides = [
 	}
 ]
 
+const pointVide = `
+	<div class="dot"></div>
+	`;
+const pointPlein = `
+	<div class="dot dot_selected"></div>
+	`;
+
+function changePoints() {
+	let pointsDiv = ``;
+	for(let i=0; i < slides.length; i++) {
+		if(i === indexTableau) {
+			// rond plein
+			pointsDiv = pointsDiv + pointPlein
+		} 
+		else {
+			// rond vide
+			pointsDiv = pointsDiv + pointVide
+		}
+	}
+	Points.innerHTML = pointsDiv;
+}
+
+function changeImageEtParagraphe() {
+	ImageBanniere.src = path + slides[indexTableau].image;
+	Paragraphe.innerHTML = slides[indexTableau].tagLine;
+	changePoints();
+}
+
+changePoints();
+
 FlecheGauche.addEventListener("click", function() {
-	console.log('flèche gauche');
+	indexTableau--;
+	changeImageEtParagraphe();
 });
 
 FlecheDroite.addEventListener("click", function() {
-	console.log('flèche droite');
+	indexTableau++;
+	changeImageEtParagraphe();
 });
-
-var Points = document.querySelector(".dots");
-
-var div = `
-	<div class="dot"></div>
-	`;
-var pointsDiv = `
-	<div class="dot dot_selected"></div>
-	`;
-for(var i=1; i < slides.length; i++) {
-	pointsDiv = pointsDiv + div;
-}
-
-Points.innerHTML = pointsDiv;
