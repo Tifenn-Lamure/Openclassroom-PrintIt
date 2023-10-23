@@ -1,4 +1,7 @@
-const slides = [
+var FlecheGauche = document.querySelector(".arrow_left");
+var FlecheDroite = document.querySelector(".arrow_right");
+
+var slides = [
 	{
 		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
@@ -16,3 +19,11 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+FlecheGauche.addEventListener("click", function() {
+	console.log('flèche gauche');
+});
+
+FlecheDroite.addEventListener("click", function() {
+	console.log('flèche droite');
+});
