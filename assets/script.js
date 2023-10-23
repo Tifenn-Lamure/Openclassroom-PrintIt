@@ -58,11 +58,21 @@ function changeImageEtParagraphe() {
 changePoints();
 
 FlecheGauche.addEventListener("click", function() {
-	indexTableau--;
+	if(indexTableau > 0) {
+		indexTableau--;
+	}
+	else {
+		indexTableau = 3;
+	}
 	changeImageEtParagraphe();
 });
 
 FlecheDroite.addEventListener("click", function() {
-	indexTableau++;
+	if(indexTableau < 3) { 
+		indexTableau++;
+	}
+	else { 
+		indexTableau = 0;
+	};
 	changeImageEtParagraphe();
 });
