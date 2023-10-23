@@ -27,3 +27,17 @@ FlecheGauche.addEventListener("click", function() {
 FlecheDroite.addEventListener("click", function() {
 	console.log('flèche droite');
 });
+
+var Points = document.querySelector(".dots");
+
+var div = `
+	<div class="dot"></div>
+	`;
+var pointsDiv = `
+	<div class="dot dot_selected"></div>
+	`;
+for(var i=1; i < slides.length; i++) {
+	pointsDiv = pointsDiv + div;
+}
+
+Points.innerHTML = pointsDiv;
