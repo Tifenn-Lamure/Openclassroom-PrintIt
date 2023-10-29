@@ -1,9 +1,9 @@
 let BanniereCarroussel = document.querySelectorAll("#banner");
-let FlecheGauche = document.querySelector(".arrow_left");
-let FlecheDroite = document.querySelector(".arrow_right");
+const FlecheGauche = document.querySelector(".arrow_left");
+const FlecheDroite = document.querySelector(".arrow_right");
 let ImageBanniere = document.querySelector(".banner-img");
 let Paragraphe = document.querySelector("#banner p");
-let Points = document.querySelector(".dots");
+const Points = document.querySelector(".dots");
 
 let indexTableau = 0;
 const path = "./assets/images/slideshow/"
